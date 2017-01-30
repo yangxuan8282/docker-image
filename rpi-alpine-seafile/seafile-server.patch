@@ -1,0 +1,63 @@
+diff --git a/controller/seafile-controller.c b/controller/seafile-controller.c
+index a394f19..cf5f221 100644
+--- a/controller/seafile-controller.c
++++ b/controller/seafile-controller.c
+@@ -601,6 +601,9 @@ seaf_controller_init (SeafileController *ctl,
+         return -1;
+     }
+ 
++		free(topdir);
++		topdir = g_path_get_dirname (config_dir);
++
+     if (!g_file_test (seafile_dir, G_FILE_TEST_IS_DIR)) {
+         seaf_warning ("invalid seafile_dir: %s\n", seafile_dir);
+         return -1;
+diff --git a/scripts/seaf-fsck.sh b/scripts/seaf-fsck.sh
+index 18b654b..9e3441e 100755
+--- a/scripts/seaf-fsck.sh
++++ b/scripts/seaf-fsck.sh
+@@ -3,14 +3,14 @@
+ echo ""
+ 
+ SCRIPT=$(readlink -f "$0")
+-INSTALLPATH=$(dirname "${SCRIPT}")
+-TOPDIR=$(dirname "${INSTALLPATH}")
++INSTALLPATH=${HOME}seafile-server
++TOPDIR=$HOME
+ default_ccnet_conf_dir=${TOPDIR}/ccnet
+ default_conf_dir=${TOPDIR}/conf
+-seaf_fsck=${INSTALLPATH}/seafile/bin/seaf-fsck
++seaf_fsck=/usr/local/bin/seaf-fsck
+ 
+-export PATH=${INSTALLPATH}/seafile/bin:$PATH
+-export SEAFILE_LD_LIBRARY_PATH=${INSTALLPATH}/seafile/lib/:${INSTALLPATH}/seafile/lib64:${LD_LIBRARY_PATH}
++#export PATH=${INSTALLPATH}/seafile/bin:$PATH
++#export SEAFILE_LD_LIBRARY_PATH=${INSTALLPATH}/seafile/lib/:${INSTALLPATH}/seafile/lib64:${LD_LIBRARY_PATH}
+ 
+ script_name=$0
+ function usage () {
+diff --git a/scripts/seaf-gc.sh b/scripts/seaf-gc.sh
+index f33ad20..f673331 100755
+--- a/scripts/seaf-gc.sh
++++ b/scripts/seaf-gc.sh
+@@ -3,15 +3,15 @@
+ echo ""
+ 
+ SCRIPT=$(readlink -f "$0")
+-INSTALLPATH=$(dirname "${SCRIPT}")
+-TOPDIR=$(dirname "${INSTALLPATH}")
++INSTALLPATH=${HOME}seafile-server
++TOPDIR=$HOME
+ default_ccnet_conf_dir=${TOPDIR}/ccnet
+ default_conf_dir=${TOPDIR}/conf
+-seaf_gc=${INSTALLPATH}/seafile/bin/seafserv-gc
++seaf_gc=/usr/local/bin/seafserv-gc
+ seaf_gc_opts=""
+ 
+-export PATH=${INSTALLPATH}/seafile/bin:$PATH
+-export SEAFILE_LD_LIBRARY_PATH=${INSTALLPATH}/seafile/lib/:${INSTALLPATH}/seafile/lib64:${LD_LIBRARY_PATH}
++#export PATH=${INSTALLPATH}/seafile/bin:$PATH
++#export SEAFILE_LD_LIBRARY_PATH=${INSTALLPATH}/seafile/lib/:${INSTALLPATH}/seafile/lib64:${LD_LIBRARY_PATH}
+ 
+ script_name=$0
+ function usage () {

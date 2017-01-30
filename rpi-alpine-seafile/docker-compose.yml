@@ -1,0 +1,27 @@
+version: '2'
+services:
+  seafile:
+    image: pi-seafile
+    
+    volumes:
+      - /home/pirate/netdisk:/home/seafile:rw
+    ports:
+      - 192.168.8.103:8000:8000
+      - 192.168.8.103:8082:8082
+      #Port 8080 is used for seafdav which is disabled by default
+#      - 127.0.0.1:8080:8080
+
+    environment:
+      # Start seahub in FastCGI mode
+      INTERACTIVE: 0
+      SERVER_NAME: pi
+      SERVER_DOMAIN: 192.168.8.103
+      SEAHUB: fastcgi
+      SEAFILE_FASTCGI_HOST: 0.0.0.0
+      HANDLE_SIGNALS: 1
+#      DEBUG: 1
+    
+    
+    container_name: seafile
+#    domainname: seafile.domain.com
+    restart: unless-stopped
