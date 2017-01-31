@@ -1,7 +1,7 @@
 FROM hypriot/rpi-alpine-scratch
 MAINTAINER Yangxuan <yangxuan8282@gmail.com>
 
-ARG ARIA2_VERSION=1.30.0
+ENV ARIA2_VERSION=1.31.0
 
 RUN apk update \
  && apk upgrade  \
