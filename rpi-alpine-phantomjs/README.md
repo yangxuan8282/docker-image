@@ -19,19 +19,13 @@ base images: hypriot/rpi-alpine-scratch:v3.3
 
 ### RUN
 
-extract binary file:
-
-```bash
-docker run -t yangxuan8282/rpi-alpine-phantomjs cat /root/phantomjs.tar.bz2 > phantomjs.tar.bz2
-```
-
 Include the binary in your Alpine Dockerfile like this:
 
 ```bash
-RUN apk update && apk add --no-cache fontconfig && \
-  mkdir -p /usr/share && \
-  cd /usr/share \
-  && curl -L URL | tar xj \
+RUN apk update && apk add --no-cache fontconfig curl \
+  && mkdir -p /usr/share \
+  && cd /usr/share \
+  && curl -L https://github.com/yangxuan8282/docker-image/releases/download/2.1.1/phantomjs-2.1.1-alpine-arm.tar.xz | tar xJ \
   && ln -s /usr/share/phantomjs/phantomjs /usr/bin/phantomjs \
   && phantomjs --version
 ```

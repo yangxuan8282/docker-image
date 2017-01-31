@@ -77,5 +77,5 @@ RUN cd /root \
     && patchelf --set-rpath '$ORIGIN/lib' phantomjs \
   && cd /root \
   && tar cvf phantomjs.tar phantomjs \
-  && bzip2 -9 phantomjs.tar
+  && xz -9 phantomjs.tar
 
