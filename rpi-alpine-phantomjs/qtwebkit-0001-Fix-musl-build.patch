@@ -1,0 +1,39 @@
+From 4e06c0bac4c7d0f75e5c1453313b2bf0b9df0145 Mon Sep 17 00:00:00 2001
+From: Natanael Copa <ncopa@alpinelinux.org>
+Date: Fri, 26 Feb 2016 13:17:12 +0000
+Subject: [PATCH] Fix musl build
+
+Only enable the GNU extension backtrace on GNU systems.
+
+This is fixed in upstream with https://github.com/WebKit/webkit/commit/a225c6c061db1b3dfe91af8ac530e3d14c972a41
+
+Issue: https://github.com/ariya/phantomjs/issues/14043
+---
+ Source/WTF/wtf/Assertions.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Source/WTF/wtf/Assertions.cpp b/Source/WTF/wtf/Assertions.cpp
+index 1b2091f..4600720 100644
+--- a/Source/WTF/wtf/Assertions.cpp
++++ b/Source/WTF/wtf/Assertions.cpp
+@@ -61,7 +61,7 @@
+ #include <windows.h>
+ #endif
+ 
+-#if (OS(DARWIN) || (OS(LINUX) && !defined(__UCLIBC__))) && !OS(ANDROID)
++#if OS(DARWIN) || (OS(LINUX) && defined(__GLIBC__) && !defined(__UCLIBC__))
+ #include <cxxabi.h>
+ #include <dlfcn.h>
+ #include <execinfo.h>
+@@ -245,7 +245,7 @@ void WTFReportArgumentAssertionFailure(const char* file, int line, const char* f
+ 
+ void WTFGetBacktrace(void** stack, int* size)
+ {
+-#if (OS(DARWIN) || (OS(LINUX) && !defined(__UCLIBC__))) && !OS(ANDROID)
++#if OS(DARWIN) || (OS(LINUX) && defined(__GLIBC__) && !defined(__UCLIBC__))
+     *size = backtrace(stack, *size);
+ #elif OS(WINDOWS) && !OS(WINCE)
+     // The CaptureStackBackTrace function is available in XP, but it is not defined
+-- 
+2.7.2
+

@@ -1,0 +1,13 @@
+diff --git a/build.py b/build.py
+index bf06752..acd92ce 100755
+--- a/build.py
++++ b/build.py
+@@ -353,7 +353,7 @@ class PhantomJSBuilder(object):
+ 
+     # run all build steps required to get a final PhantomJS binary at the end
+     def run(self):
+-        self.ensureSubmodulesAvailable();
++#        self.ensureSubmodulesAvailable();
+         self.buildQtBase()
+         self.buildQtWebKit()
+         self.buildPhantomJS()
