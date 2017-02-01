@@ -1,0 +1,20 @@
+version: '2'
+services:
+  influxdb:
+    extends:
+      file: docker-compose.yml
+      service: influxdb
+  grafana:
+    extends:
+      file: docker-compose.yml
+      service: grafana
+  sut:
+    image: appcelerator/sut
+    build: ./sut
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    depends_on:
+      - grafana
+      - influxdb
+    labels:
+      - "io.appcelerator.amp.build.mounts=/var/run/docker.sock"

@@ -1,0 +1,16 @@
+version: "2"
+services:
+  aria2:
+    image: yangxuan8282/rpi-alpine-aria2
+    ports:
+      - "6800:6800"
+    volumes:
+      - $HOME/Downloads:/home/aria2
+    restart: always 
+
+  yaaw:
+    build: .
+    image: yaaw
+    ports:
+      - "6801:80"
+    restart: always

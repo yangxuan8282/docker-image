@@ -1,0 +1,17 @@
+version: "2"
+services:
+  aria2:
+    image: yangxuan8282/rpi-alpine-aria2
+    ports:
+      - "6803:6800"
+    volumes:
+      - $HOME/Downloads:/home/aria2
+    restart: always
+
+  webui:
+    build: .
+    image: webui-aria2
+    ports:
+      - "6802:80"
+    restart: always
+

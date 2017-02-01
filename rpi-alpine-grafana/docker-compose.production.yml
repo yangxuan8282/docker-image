@@ -1,0 +1,12 @@
+version: '2'
+services:
+  influxdb:
+    extends:
+      file: docker-compose.yml
+      service: influxdb
+  grafana:
+    extends:
+      file: docker-compose.yml
+      service: grafana
+    depends_on:
+      - influxdb
