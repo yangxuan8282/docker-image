@@ -14,7 +14,7 @@ thanks for help from [Nicolas Degory](https://github.com/ndegory)
 ### RUN
 
 ```bash
-docker run -d --name=grafana -p 3000:3000 appcelerator/grafana
+docker run -d --name=grafana -p 3000:3000 yangxuan8282/rpi-alpine-grafana
 ```
 
 then visit http://raspberrypi:3000 (or replace raspberrypi with your hostname)
