@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  $SERVIVE_NAME:
+    image: $IMAGE
+    container_name: $CONTAINER_NAME
+    restart: "always"
+    expose:
+      - $PORT
+    environment:
+      - VIRTUAL_HOST=subdomain.mydomain.com
+      - VIRTUAL_PORT=$PORT
+      - VIRTUAL_NETWORK=proxy-network
+    volumes:
+       - $HOST_VOLUME:$DOCKER_VOLUME
+
+networks:
+  default:
+    external:
+      name: proxy-network

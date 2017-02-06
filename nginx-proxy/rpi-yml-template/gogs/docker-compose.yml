@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  gogs:
+    image: gogs/gogs-rpi
+    container_name: Gogs
+    restart: "always"
+    expose:
+      - 3000
+      - 22
+    environment:
+      - VIRTUAL_HOST=gogs.mydomain.com
+      - VIRTUAL_PORT=3000
+      - VIRTUAL_NETWORK=proxy-network
+    volumes:
+       - $HOME/repos/gogs:/data 
+
+networks:
+  default:
+    external:
+      name: proxy-network

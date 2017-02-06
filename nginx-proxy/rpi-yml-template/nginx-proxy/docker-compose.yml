@@ -1,0 +1,16 @@
+version: "2"
+services: 
+  nginx-proxy:
+    image: yangxuan8282/rpi-nginx-proxy
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+      - "./vhost.d:/etc/nginx/vhost.d:ro"     
+ 
+networks:
+  default:
+    external:
+      name: proxy-network
