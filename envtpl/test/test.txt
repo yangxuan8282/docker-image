@@ -1,0 +1,13 @@
+[agent]
+  ## Default data collection interval for all inputs
+  interval = "2s"
+  round_interval = true
+  hostname = "localhost"
+
+[[outputs.influxdb]]
+
+# kafka output is disabled
+
+Environment variables starting with TAG_:
+TAG_DATACENTER="dc1"
+TAG_REGION="eu-west-1"

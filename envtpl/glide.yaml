@@ -1,0 +1,5 @@
+package: github.com/subfuzion/envtpl
+import:
+- package: github.com/Masterminds/sprig
+  version: ^2.8.0
+- package: github.com/spf13/cobra
