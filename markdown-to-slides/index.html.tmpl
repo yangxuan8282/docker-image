@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{.Env.TITLE}}</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; font-size: large }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <script src="remark-{{getenv "REMARK_VER"}}.min.js"></script>
+    <script>
+      var slideshow = remark.create({
+        sourceUrl: 'slides.md?' + Math.random(),
+        ratio: '{{getenv "RATIO" "4:3"}}',
+        navigation: {
+          scroll: false,
+          touch: true,
+          click: false
+        },
+        highlightStyle: '{{getenv "HIGHLIGHT_STYLE" "default"}}',
+        highlightSpans: true,
+        highlightLines: {{getenv "HIGHLIGHT_LINES" "false"}}
+      })
+    </script>
+  </body>
+</html>

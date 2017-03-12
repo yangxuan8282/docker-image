@@ -1,0 +1,36 @@
+{{template "embed/meta.html" .}}
+{{template "embed/header.html" .}}
+<section id="main">
+    <div class="container">
+        <div id="article-list">{{if .Tag}}
+            <h2 class="tag text-center">{{.Tag.Name}}</h2>{{end}}{{range .Posts}}
+            <article class="article">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 panel panel-default">
+                        <header class="header">
+                            <div class="meta">
+                        <span class="date">
+                            <span class="month">{{printf "%02d" .CreateTime.Month}}</span>
+                            <span class="day">{{printf "%02d" .CreateTime.Day}}</span>
+                        </span>
+                            </div>
+                            <h3 class="title">
+                                <a href="{{FullURL .URL}}">{{.Title}}</a>
+                            </h3>
+                        </header>
+                        <section class="brief">{{.BriefHTML}}</section>
+                        <aside class="aside clearfix">
+                            <a class="btn btn-primary btn-lg pull-right" href="{{FullURL .URL}}">Read More</a>
+                        </aside>
+                    </div>
+                </div>
+            </article>
+            {{end}}
+            <div class="article-pager text-center">
+                {{if .Pager.Prev}}<a class="btn btn-lg btn-info" href="{{FullURL .Pager.PrevURL}}">Prev</a>{{end}}
+                {{if .Pager.Next}}<a class="btn btn-lg btn-info" href="{{FullURL .Pager.NextURL}}">Next</a>{{end}}
+            </div>
+        </div>
+    </div>
+</section>
+{{template "embed/footer.html" .}}

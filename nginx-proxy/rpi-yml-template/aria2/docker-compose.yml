@@ -1,0 +1,31 @@
+version: "2"
+services:
+  aria2:
+    image: yangxuan8282/rpi-alpine-aria2
+    expose:
+      - 6800
+    volumes:
+      - $HOME/Downloads:/home/aria2
+    restart: always
+    environment:
+      - VIRTUAL_HOST=aria2.pimy.life
+      - VIRTUAL_PORT=6800
+      - VIRTUAL_NETWORK=proxy-network
+
+  webui:
+    build: .
+    image: webui-aria2
+    expose:
+      - 80
+    restart: always
+    environment:
+      - VIRTUAL_HOST=aria2.pimy.life
+      - VIRTUAL_PORT=80
+      - VIRTUAL_NETWORK=proxy-network
+
+networks:
+  default:
+    external:
+      name: proxy-network
+
+

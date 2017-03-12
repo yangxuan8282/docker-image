@@ -1,0 +1,24 @@
+version: "2"
+
+services:
+  privatebin:
+    image: yangxuan8282/privatebin
+    container_name: Privatebin
+    restart: always
+    expose:
+      - 80
+    volumes:
+      - ./data:/privatebin/data
+      - ./cfg:/privatebin/cfg
+    environment:
+      - VIRTUAL_HOST=bin.pimy.life
+      - VIRTUAL_PORT=9000
+      - VIRTUAL_NETWORK=proxy-network
+      - LETSENCRYPT_HOST=bin.pimy.life
+      - LETSENCRYPT_EMAIL=yangxuan8282@gmail.com
+
+networks:
+  default:
+    external:
+      name: proxy-network
+

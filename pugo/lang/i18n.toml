@@ -1,0 +1,9 @@
+[[lang]]
+lang = "en"
+name = "English"
+file = "en.toml"
+
+[[lang]]
+lang = "zh-cn"
+name = "简体中文"
+file = "zh-cn.toml"

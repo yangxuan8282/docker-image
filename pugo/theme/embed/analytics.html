@@ -1,0 +1,29 @@
+{{if .Analytics}}
+    {{if .Analytics.Google}}
+    <!-- Google Analytics -->
+    <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', '{{.Analytics.Google}}', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <script async src='//www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    {{end}}
+    {{if .Analytics.Baidu}}
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?{{.Analytics.Baidu}}";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    {{end}}
+    {{if .Analytics.Cnzz}}
+    <script>
+    var cnzz_protocol = ("https:" == document.location.protocol) ? " https://" : " http://";
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_{{.Analytics.Cnzz}}'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D{{.Analytics.Cnzz}}' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    {{end}}    
+{{end}}

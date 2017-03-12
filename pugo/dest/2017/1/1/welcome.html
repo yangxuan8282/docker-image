@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Welcome to PuGo - PuGo</title>
+    <meta name="keywords" content="PuGo,Golang,Static,Website"/>
+    <meta name="description" content="PuGo is a simple static site generator"/>
+    <link rel="alternate" type="application/rss+xml" title="Blessing Studio" href="/feed.xml" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/prism.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<header id="header">
+    <div class="container">
+        <div class="header clearfix">
+            <h3 id="site-title">
+                <a href="/">PuGo <sup>Just for Writing</sup></a>
+            </h3>
+            <nav id="site-nav">
+                <ul class="nav nav-inverse nav-pills">
+                    <li role="presentation" class="">
+                        <a href="/" >Home
+                        </a>
+                    </li>
+                    <li role="presentation" class="">
+                        <a href="/archive.html" >Archive
+                        </a>
+                    </li>
+                    <li role="presentation" class="">
+                        <a href="/about.html" >About
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<section id="main">
+    <div class="container">
+        <div id="article-single">
+            <article class="article">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 panel panel-default">
+                        <header class="header">
+                            <div class="meta">
+                        <span class="date">
+                            <span class="month">01</span>
+                            <span class="day">01</span>
+                        </span>
+                            </div>
+                            <h3 class="title">
+                                <a href="/2017/1/1/welcome.html">Welcome to PuGo</a>
+                            </h3>
+                        </header>
+                        <aside class="aside clearfix">
+                            
+                            <a class="tag label label-info" href="/tags/pugo.html">pugo</a>
+                            
+                            
+                            <a class="stat label label-default pull-right" href="http://pugo.io" target="_blank">pugo</a>
+                        </aside>
+                        <section class="brief"><p>When you read the post, <code>PuGo</code> is running successfully.</p>
+
+<p>This post is generated from file <code>post/welcome.md</code>. You can learn it and try to write your own article with following guide.</p>
+
+<h4 id="front-meta">Front-Meta</h4>
+
+<p>Post&rsquo;s front-meta, including title, author etc, are created by first code section with block <strong>```toml &hellip;.. ```</strong>:</p>
+<pre><code class="language-toml"># post title, required
+title = &quot;Welcome to PuGo&quot;
+
+# post slug, use to build permalink and url, required
+slug = &quot;welcome&quot;
+
+# post description, show in header meta
+desc = &quot;welcome to try pugo static site generator&quot;
+
+# post created time, support
+# 2017-01-01, 2017-01-01 12:30, 2017-01-01 12:30:40
+date = &quot;2017-01-01 12:30&quot;
+
+# post updated time, optional
+# if null, use created time
+date = &quot;2017-01-01 12:40&quot;
+
+# author identifier, reference to meta [[author]], required
+author = &quot;pugo&quot;
+
+# tags, optional
+tags = [&quot;pugo&quot;]
+
+# draft status
+# if true, it will not be compiled to static page
+draft = false
+</code></pre>
+
+<h4 id="content">Content</h4>
+
+<p>The content is data after first block. All words will be parsed as markdown content.</p>
+<pre><code class="language-markdown">
+When you read the post, `PuGo` is running successfully.
+
+This post is generated from file `post/welcome.md`. 
+
+You can learn it and try to write your own article with following guide.
+
+![golang](/media/golang.png)
+
+...... (markdown content)
+
+Markdown is a lightweight markup language with plain text formatting syntax designed
+so that it can be converted to HTML and many other formats using a tool by the same name.
+Markdown is often used to format readme files, for writing messages in online discussion forums,
+and to create rich text using a plain text editor.
+
+</code></pre>
+
+<p><img src="/media/golang.png" alt="golang" /></p>
+
+<p>Markdown is a lightweight markup language with plain text formatting syntax designed
+so that it can be converted to HTML and many other formats using a tool by the same name.
+Markdown is often used to format readme files, for writing messages in online discussion forums,
+and to create rich text using a plain text editor.</p>
+</section>
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+<section id="comment">
+    
+    
+</section>
+
+    </div>
+</section>
+<footer id="footer">
+    <div class="container text-center">
+        <p>© 2017 PuGo.
+            <a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved </a> |
+            <a href="/feed.xml">Feed</a> |
+            <a href="/sitemap.xml">Sitemap</a>
+        </p>
+        <p>Powered by <a href="https://github.com/go-xiaohei/pugo">PuGo 1.0.0</a>. Theme by Default.
+        </p>
+        
+    
+    
+        
+
+    </div>
+</footer>
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/prism.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  resilio-sync:
+    image: yangxuan8282/rpi-resilio-sync
+    container_name: Sync
+    restart: "always"
+    expose:
+      - 8888
+      - 55555
+    environment:
+      - VIRTUAL_HOST=btsync.mydomain.com
+      - VIRTUAL_PORT=8888
+      - VIRTUAL_NETWORK=proxy-network
+    volumes:
+       - $HOME/btsync:/mnt/sync
+
+networks:
+  default:
+    external:
+      name: proxy-network

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>About PuGo - PuGo</title>
+    <meta name="keywords" content="PuGo,Golang,Static,Website"/>
+    <meta name="description" content="PuGo is a simple static site generator"/>
+    <link rel="alternate" type="application/rss+xml" title="Blessing Studio" href="/feed.xml" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/prism.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<header id="header">
+    <div class="container">
+        <div class="header clearfix">
+            <h3 id="site-title">
+                <a href="/">PuGo <sup>Just for Writing</sup></a>
+            </h3>
+            <nav id="site-nav">
+                <ul class="nav nav-inverse nav-pills">
+                    <li role="presentation" class="">
+                        <a href="/" >Home
+                        </a>
+                    </li>
+                    <li role="presentation" class="">
+                        <a href="/archive.html" >Archive
+                        </a>
+                    </li>
+                    <li role="presentation" class="active">
+                        <a href="/about.html" >About
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<section id="main">
+    <div class="container">
+        <div id="article-single">
+            <article class="article">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 panel panel-default">
+                        <header class="header">
+                            <div class="meta">
+                        <span class="date">
+                            <span class="month">01</span>
+                            <span class="day">01</span>
+                        </span>
+                            </div>
+                            <h3 class="title">
+                                <a href="about.html">About PuGo</a>
+                            </h3>
+                        </header>
+                        <aside class="aside clearfix">
+                            <a class="stat label label-default pull-right" href="http://pugo.io" target="_blank">pugo</a>
+                        </aside>
+                        <section class="brief"><h3 id="introduction">Introduction</h3>
+
+<p><code>PuGo</code> is a simple static site generator by <a href="https://golang.org">Golang</a>. It compiles <a href="https://help.github.com/articles/markdown-basics/">markdown</a> to site pages with beautiful theme. No dependencies, cross platform and very fast.</p>
+
+<p><img src="/media/golang.png" alt="golang" /></p>
+
+<h3 id="quick-start">Quick start</h3>
+
+<ol>
+<li>Download from <a href="http://pugo.io">PuGo</a> and extract zip archive.</li>
+<li>Run <code>pugo init</code> to create new default site.</li>
+<li>Run <code>pugo server</code>, open <code>http://localhost:9899</code> to visit.</li>
+</ol>
+
+<h3 id="commands">Commands</h3>
+
+<p>Run a command when run <code>pugo</code> executable file:</p>
+
+<ul>
+<li><code>pugo init</code> create new site, post or page.</li>
+<li><code>pugo build</code> build static files.</li>
+<li><code>pugo server</code> build and serve static files.</li>
+</ul>
+
+<p>More details in <a href="http://pugo.io/en/docs.html">Documentation</a>.</p>
+
+<h3 id="writing">Writing</h3>
+
+<p><code>PuGo</code> support two kinds of content, <code>post</code> and <code>page</code>. Create any <code>.md</code> file in proper directories. Read the <a href="http://pugo.io/en/guide/write-new-post.html">wiki</a> to learn the layout format and more details.</p>
+
+<h3 id="compile">Compile</h3>
+
+<p>After you change your source <code>.md</code> files, run</p>
+<pre><code>pugo build
+</code></pre>
+
+<p>To build static files.</p>
+
+<h3 id="customize">Customize</h3>
+
+<ul>
+<li>Theme: theme documentation is <a href="http://pugo.io/en/docs/tpl/syntax.html">Here</a></li>
+</ul>
+</section>
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+<section id="comment">
+    
+    
+</section>
+
+    </div>
+</section>
+<footer id="footer">
+    <div class="container text-center">
+        <p>© 2017 PuGo.
+            <a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved </a> |
+            <a href="/feed.xml">Feed</a> |
+            <a href="/sitemap.xml">Sitemap</a>
+        </p>
+        <p>Powered by <a href="https://github.com/go-xiaohei/pugo">PuGo 1.0.0</a>. Theme by Default.
+        </p>
+        
+    
+    
+        
+
+    </div>
+</footer>
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/prism.min.js"></script>
+</body>
+</html>

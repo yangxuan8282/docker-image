@@ -1,0 +1,25 @@
+version: "2"
+
+services:
+  markdown-to-slides:
+    image: yangxuan8282/markdown-to-slides
+    container_name: markdown-to-slides
+    restart: always
+    expose:
+      - 80
+    volumes:
+      - "./slides.md:/slides.md"
+    environment:
+      - VIRTUAL_HOST=slides.mydomain.com
+      - VIRTUAL_PORT=80  
+      - VIRTUAL_NETWORK=proxy-network
+      - LETSENCRYPT_HOST=slides.mydomain.com
+      - LETSENCRYPT_EMAIL=me@example.com
+
+networks:
+  default:
+    external:
+      name: proxy-network
+
+
+

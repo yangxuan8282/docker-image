@@ -1,0 +1,94 @@
+# site basic meta
+[meta]
+# the title of static site
+title = "PuGo"
+# the subtitle of static site
+subtitle = "Just for Writing"
+# keyword of site
+keyword = "PuGo,Golang,Static,Website"
+# description of site
+desc = "PuGo is a simple static site generator"
+# root url of site
+root = "http://localhost:9899/"
+# basic language of site
+# if empty, no i18n support
+lang = "en"
+
+# navigator item
+[[nav]]
+# link of nav
+link = "/"
+# title of nav
+title = "Home"
+# i18n key of nav
+i18n = "home"
+# hover key of nav
+hover = "index"
+# open new tab for link
+blank = false
+
+# navigator item
+[[nav]]
+link = "/archive.html"
+title = "Archive"
+i18n = "archive"
+hover = "archive"
+
+# navigator item
+[[nav]]
+link = "/about.html"
+title = "About"
+i18n = "about"
+hover = "about"
+
+# author item
+[[author]]
+# name of author
+name = "pugo"
+# email of author
+email = ""
+# url of author
+url = "http://pugo.io"
+# avatar of author
+avatar = "@media/author.png"
+# bio of author
+bio = "the robot of pugo, who generates all default contents."
+
+# comment settings
+# please only set one value
+# if multi values, it prints all comment iframes
+[comment]
+# disqus site name
+disqus = ""
+# duoshuo short name
+duoshuo = ""
+
+# analytics settings
+# please only set one value
+# if multi values, it prints all analytics codes
+[analytics]
+# google analytics, need as UA-XXXXX-Y
+google = ""
+# baidu analytics, need hash-code in hm.js?hash-code
+baidu = ""
+# Tencent Analytics, need your_sid in http://tajs.qq.com/stats?sId?SId=your_sid
+tencent = ""
+
+# configuration settings
+# please do not modify settings
+# if need change values, read documentation carefully
+[config]
+# directory of posts
+post_dir = "post"
+# directory of pages
+page_dir = "page"
+# directory of media
+media_dir = "media"
+# directory of theme
+theme_dir = "theme"
+# directory of language
+lang_dir = "lang"
+# directory of static site output files
+output_dir = "dest"
+# post page size
+post_pagesize = 4

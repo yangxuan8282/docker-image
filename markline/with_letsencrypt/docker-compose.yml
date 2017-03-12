@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+  markline:
+    image: yangxuan8282/markline
+    container_name: markline
+    expose:
+      - 8000
+    volumes:
+      - ./data:/root
+    restart: always
+    environment:
+      - VIRTUAL_HOST=life.pimy.life
+      - VIRTUAL_PORT=8000
+      - VIRTUAL_NETWORK=proxy-network
+      - LETSENCRYPT_HOST=life.pimy.life
+      - LETSENCRYPT_EMAIL=yangxuan8282@gmail.com
+
+networks:
+  default:
+    external:
+      name: proxy-network
+

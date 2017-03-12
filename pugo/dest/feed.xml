@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0">
+  <channel>
+    <title>PuGo</title>
+    <link>http://localhost:9899/</link>
+    <description>PuGo is a simple static site generator</description>
+    <managingEditor> (pugo)</managingEditor>
+    <pubDate>Fri, 03 Mar 2017 13:16:17 +0000</pubDate>
+    <item>
+      <title>Welcome to PuGo</title>
+      <link>http://localhost:9899/2017/1/1/welcome.html</link>
+      <description>&lt;p&gt;When you read the post, &lt;code&gt;PuGo&lt;/code&gt; is running successfully.&lt;/p&gt;&#xA;&#xA;&lt;p&gt;This post is generated from file &lt;code&gt;post/welcome.md&lt;/code&gt;. You can learn it and try to write your own article with following guide.&lt;/p&gt;&#xA;&#xA;&lt;h4 id=&#34;front-meta&#34;&gt;Front-Meta&lt;/h4&gt;&#xA;&#xA;&lt;p&gt;Post&amp;rsquo;s front-meta, including title, author etc, are created by first code section with block &lt;strong&gt;```toml &amp;hellip;.. ```&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;# post title, required&#xA;title = &amp;quot;Welcome to PuGo&amp;quot;&#xA;&#xA;# post slug, use to build permalink and url, required&#xA;slug = &amp;quot;welcome&amp;quot;&#xA;&#xA;# post description, show in header meta&#xA;desc = &amp;quot;welcome to try pugo static site generator&amp;quot;&#xA;&#xA;# post created time, support&#xA;# 2017-01-01, 2017-01-01 12:30, 2017-01-01 12:30:40&#xA;date = &amp;quot;2017-01-01 12:30&amp;quot;&#xA;&#xA;# post updated time, optional&#xA;# if null, use created time&#xA;date = &amp;quot;2017-01-01 12:40&amp;quot;&#xA;&#xA;# author identifier, reference to meta [[author]], required&#xA;author = &amp;quot;pugo&amp;quot;&#xA;&#xA;# tags, optional&#xA;tags = [&amp;quot;pugo&amp;quot;]&#xA;&#xA;# draft status&#xA;# if true, it will not be compiled to static page&#xA;draft = false&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h4 id=&#34;content&#34;&gt;Content&lt;/h4&gt;&#xA;&#xA;&lt;p&gt;The content is data after first block. All words will be parsed as markdown content.&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;&#xA;When you read the post, `PuGo` is running successfully.&#xA;&#xA;This post is generated from file `post/welcome.md`. &#xA;&#xA;You can learn it and try to write your own article with following guide.&#xA;&#xA;![golang](/media/golang.png)&#xA;&#xA;...... (markdown content)&#xA;&#xA;Markdown is a lightweight markup language with plain text formatting syntax designed&#xA;so that it can be converted to HTML and many other formats using a tool by the same name.&#xA;Markdown is often used to format readme files, for writing messages in online discussion forums,&#xA;and to create rich text using a plain text editor.&#xA;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;&lt;img src=&#34;/media/golang.png&#34; alt=&#34;golang&#34; /&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;Markdown is a lightweight markup language with plain text formatting syntax designed&#xA;so that it can be converted to HTML and many other formats using a tool by the same name.&#xA;Markdown is often used to format readme files, for writing messages in online discussion forums,&#xA;and to create rich text using a plain text editor.&lt;/p&gt;&#xA;</description>
+      <author>pugo</author>
+      <pubDate>Sun, 01 Jan 2017 12:00:20 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,10 @@
+version: "2"
+services:
+  markline:
+    image: yangxuan8282/markline
+    ports:
+      - 8989:8000
+    volumes:
+      - ./life.md:/root/life.md
+ 
+
