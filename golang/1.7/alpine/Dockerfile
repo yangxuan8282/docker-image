@@ -1,10 +1,4 @@
-FROM hypriot/rpi-alpine-scratch:v3.4
-MAINTAINER Yangxuan <yangxuan8282@gmail.com>
-
-RUN sed -i 's/nl.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
-
-RUN echo "http://mirrors.ustc.edu.cn/alpine/v3.4/community" >> /etc/apk/repositories \ 
-  && echo "http://mirrors.ustc.edu.cn/alpine/v3.4/main" >> /etc/apk/repositories
+FROM hypriot/rpi-alpine:3.4
 
 RUN apk add --no-cache ca-certificates
 
