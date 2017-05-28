@@ -1,0 +1,32 @@
+version: '2'
+services:
+  leanote:
+    container_name: leanote_app
+    image: yangxuan8282/armhf-leanote
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./app.conf:/leanote/conf/app.conf
+      - ./upload:/leanote/public/upload
+      - /etc/localtime:/etc/localtime:ro
+    links:
+      - mongo
+    restart: always
+
+  mongo:
+    container_name: leanote_db
+    image: yangxuan8282/armhf-mongo
+    volumes:
+      - ./data:/data/db
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+
+  initdb:
+    container_name: leanote_init
+    image: yangxuan8282/armhf-mongo
+    links:
+      - mongo
+    volumes:
+      - ./initdb.sh:/initdb.sh
+      - ./mongodb_backup:/mongodb_backup
+    command: sh /initdb.sh
