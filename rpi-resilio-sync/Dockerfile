@@ -1,9 +1,9 @@
-FROM hypriot/rpi-alpine-scratch:v3.4
+FROM pipill/armhf-alpine:3.4
 MAINTAINER Yangxuan <yangxuan8282@gmail.com>
 
-ENV RESILIO_VERSION=2.4.4
+ENV RESILIO_VERSION=2.5.2
 
-ENV RESILIO_URL="https://download-cdn.resilio.com/stable/linux-armhf/resilio-sync_armhf.tar.gz"
+ENV RESILIO_URL=https://download-cdn.resilio.com/${RESILIO_VERSION}/linux-armhf/resilio-sync_armhf.tar.gz
 
 RUN apk update \
  && apk upgrade \
