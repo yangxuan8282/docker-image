@@ -9,8 +9,6 @@ fi
 
 if [ ! -e '/var/www/html/index.php' ]; then
     cp -a /usr/src/typecho/* /var/www/html/
-    chown -R www-data /var/www/html
-    chmod -R 777 /var/www/html/
 fi
 
 exec "$@"
