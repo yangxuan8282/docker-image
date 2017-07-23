@@ -1,8 +1,9 @@
-FROM hypriot/rpi-alpine-scratch
+FROM pipill/armhf-alpine
 MAINTAINER Yangxuan <yangxuan8282@gmail.com>
 
-ENV ARIA2_VERSION=1.31.0
+ENV ARIA2_VERSION=1.32.0
 
+RUN [ "cross-build-start" ]
 RUN apk update \
  && apk upgrade  \
  && apk add bash \
@@ -16,7 +17,7 @@ RUN apk update \
  && adduser -D aria2 \
  && mkdir -p /etc/aria2 \
  && touch /etc/aria2/session.lock 
- 
+RUN [ "cross-build-end" ] 
 COPY aria2.conf /etc/aria2/aria2.conf 
 VOLUME /home/aria2 /etc/aria2
 
