@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+  ss_ap:
+    image: yangxuan8282/yangxuan8282/rpi-alpine-aria2
+    restart: unless-stopped
+    ports:
+      - 6800:6800
+    volumes:
+      - "$HOME/dl:/home/aria2"
