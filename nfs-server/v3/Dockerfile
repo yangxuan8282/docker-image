@@ -1,4 +1,4 @@
-FROM arm32v6/alpine
+FROM alpine
 
 MAINTAINER Tang Jiujun <jiujun.tang@gmail.com>
 
