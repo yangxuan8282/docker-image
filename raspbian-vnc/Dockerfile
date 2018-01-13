@@ -1,7 +1,10 @@
 FROM debian
 MAINTAINER Yangxuan <yangxuan8282@gmail.com>
 
+ENV DEBIAN_FRONTEND noninteractive
+
 COPY run_vnc /usr/bin/
+COPY keyboard /etc/default/keyboard
 
 RUN set -xe \
   && apt-get update && apt-get install -y dirmngr \
