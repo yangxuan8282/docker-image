@@ -1,0 +1,15 @@
+FROM yangxuan8282/pixel-vnc:amd64
+
+COPY run_novnc /usr/bin/
+
+RUN apt-get update \
+  && apt-get install -y git net-tools \
+  && git clone https://github.com/kanaka/noVNC /root/noVNC \
+  && git clone https://github.com/kanaka/websockify /root/noVNC/utils/websockify \
+  && apt-get purge -y git \
+  && rm -rf /var/lib/apt/lists/* \
+  && chmod +x /usr/bin/run_novnc
+
+EXPOSE 6080
+
+CMD ["run_novnc"]
