@@ -13,7 +13,7 @@ RUN set -xe \
   && apt-get update && apt-get upgrade -y \
   && apt-get install -y raspberrypi-ui-mods lxterminal rpi-chromium-mods tightvncserver \
   && rm -rf /var/lib/apt/lists/* \
-  && chmod +x run_vnc
+  && chmod +x /usr/bin/run_vnc
 
 ENV USER=root VNCPASSWD=raspberry
 
