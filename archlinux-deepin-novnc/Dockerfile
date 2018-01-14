@@ -14,7 +14,8 @@ RUN pacman -S --noconfirm tigervnc git net-tools wqy-zenhei firefox \
 
 ENV USER=root VNCPASSWD=archlinux
 
-RUN echo "$VNCPASSWD\n$VNCPASSWD\nn" | vncpasswd
+RUN mkdir -p /root/.vnc \
+  && echo "archlinux" | tee /root/.vnc/passwd
 
 EXPOSE 6080
 
