@@ -11,9 +11,9 @@ RUN set -xe \
   && apt-get update && apt-get upgrade -y \
   && apt-get install -y dde 
 
-RUN apt-get install -y tightvncserver git net-tools fonts-wqy-zenhei firefox \
+RUN apt-get install -y websockify tightvncserver git net-tools fonts-wqy-zenhei firefox \
   && git clone https://github.com/kanaka/noVNC /root/noVNC \
-  && git clone https://github.com/kanaka/websockify /root/noVNC/utils/websockify \
+  #&& git clone https://github.com/kanaka/websockify /root/noVNC/utils/websockify \
   && apt-get purge -y git \
   && rm -rf /var/lib/apt/lists/* \
   && chmod +x /usr/bin/run_novnc
