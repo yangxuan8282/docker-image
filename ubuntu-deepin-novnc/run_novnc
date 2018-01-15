@@ -6,5 +6,5 @@ export DISPLAY=:1
 # Remove VNC lock (if process already killed)
 rm /tmp/.X1-lock /tmp/.X11-unix/X1
 # Run VNC server with tail in the foreground
-vncserver :1 -geometry 1920x1080 -depth 24  &
+tightvncserver :1 -geometry 1920x1080 -depth 24  &
 cd /root/noVNC && ln -s vnc.html index.html && ./utils/launch.sh --vnc localhost:5901
