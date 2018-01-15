@@ -6,6 +6,7 @@ COPY run_novnc /usr/bin/
 COPY keyboard /etc/default/keyboard
 
 RUN set -xe \
+  && apt-get update && apt-get install -y software-properties-common \
   && add-apt-repository ppa:leaeasy/dde \
   && apt-get update && apt-get upgrade -y \
   && apt-get install -y dde 
