@@ -28,10 +28,6 @@ ENV USER=pi \
     VNC_PASSWD=raspberry \
     PASSWD_PATH="$HOME/.vnc/passwd" 
 
-RUN mkdir -p "$HOME/.vnc" \
-  && echo "$VNC_PASSWD" | vncpasswd -f >> $PASSWD_PATH \
-  && chmod 600 $PASSWD_PATH
-
 EXPOSE $VNC_PORT
 
 CMD ["run_vnc"]
