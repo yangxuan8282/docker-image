@@ -2,7 +2,9 @@
 
 set -x 
 
-# Remove VNC lock (if process already killed)
-rm /tmp/.X1-lock /tmp/.X11-unix/X1
-# Run VNC server with tail in the foreground
-vncserver :1 -geometry 1024x768 -depth 24 && tail -F /root/.vnc/*.log
+source $HOME/.bashrc
+
+echo "CHROMIUM_FLAGS='--no-sandbox --disable-gpu --user-data-dir'" > $HOME/.chromium-browser.init
+
+vncserver -kill $DISPLAY || rm -rfv /tmp/.X*-lock /tmp/.X11-unix
+vncserver :1 -geometry $VNC_RESOLUTION -depth $VNC_COL_DEPTH && tail -F $HOME/.vnc/*$DISPLAY.log
