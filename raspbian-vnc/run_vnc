@@ -1,8 +1,12 @@
 #!/bin/bash
 
-set -x 
+set -xe
 
 source $HOME/.bashrc
+
+mkdir -p "$HOME/.vnc" 
+echo "$VNC_PASSWD" | vncpasswd -f >> $PASSWD_PATH
+chmod 600 $PASSWD_PATH
 
 echo "CHROMIUM_FLAGS='--no-sandbox --disable-gpu --user-data-dir'" > $HOME/.chromium-browser.init
 
