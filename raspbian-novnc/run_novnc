@@ -1,10 +1,17 @@
 #!/bin/bash
 
-set -x
+set -xe
 
-export DISPLAY=:1
-# Remove VNC lock (if process already killed)
-rm /tmp/.X1-lock /tmp/.X11-unix/X1
-# Run VNC server with tail in the foreground
-vncserver :1 -geometry 1024x768 -depth 24  &
-cd /root/noVNC && ln -s vnc.html index.html && ./utils/launch.sh --vnc localhost:5901
+source $HOME/.bashrc
+
+echo "CHROMIUM_FLAGS='--no-sandbox --start-maximized --user-data-dir'" > $HOME/.chromium-browser.init
+
+mkdir -p "$HOME/.vnc"
+PASSWD_PATH="$HOME/.vnc/passwd"
+
+echo "$VNC_PASSWD" | vncpasswd -f >> $PASSWD_PATH
+chmod 600 $PASSWD_PATH
+
+$NOVNC_HOME/utils/launch.sh --vnc localhost:$VNC_PORT --listen $NOVNC_PORT &
+vncserver -kill $DISPLAY || rm -rfv /tmp/.X*-lock /tmp/.X11-unix || echo "remove old vnc locks to be a reattachable container"
+vncserver $DISPLAY -depth $VNC_COL_DEPTH -geometry $VNC_RESOLUTION && tail -f $HOME/.vnc/*$DISPLAY.log
