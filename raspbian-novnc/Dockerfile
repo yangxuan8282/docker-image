@@ -34,7 +34,7 @@ ENV USER=pi \
     NOVNC_HOME=/home/pi/noVNC
 
 RUN set -xe \
-  && wget -qO- https://dl.bintray.com/tigervnc/stable/tigervnc-1.8.0.x86_64.tar.gz | tar xz --strip 1 -C / \
+  && wget -qO- https://dl.bintray.com/tigervnc/stable/tigervnc-1.8.0.x86_64.tar.gz | sudo tar xz --strip 1 -C / \
   && mkdir -p $NOVNC_HOME/utils/websockify \
   && wget -qO- https://github.com/novnc/noVNC/archive/v0.6.2.tar.gz | tar xz --strip 1 -C $NOVNC_HOME \
   && wget -qO- https://github.com/novnc/websockify/archive/v0.6.1.tar.gz | tar xz --strip 1 -C $NOVNC_HOME/utils/websockify \
