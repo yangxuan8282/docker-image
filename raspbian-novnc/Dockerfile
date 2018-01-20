@@ -11,7 +11,7 @@ RUN set -xe \
   && echo "deb http://archive.raspberrypi.org/debian/ stretch main ui" | tee /etc/apt/sources.list.d/raspi.list \
   && apt-key adv --keyserver keyserver.ubuntu.com --recv 82B129927FA3303E \
   && apt-get update && apt-get upgrade -y \
-  && apt-get install -y raspberrypi-ui-mods lxterminal firefox-esr net-tools wget htop \
+  && apt-get install -y raspberrypi-ui-mods lxterminal firefox-esr tightvncserver net-tools wget htop \
   && useradd -g sudo -ms /bin/bash pi \
   && echo 'pi:raspberry' | chpasswd -e \
   && echo 'pi ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
@@ -34,7 +34,6 @@ ENV USER=pi \
     NOVNC_HOME=/home/pi/noVNC
 
 RUN set -xe \
-  && wget -qO- https://dl.bintray.com/tigervnc/stable/tigervnc-1.8.0.x86_64.tar.gz | sudo tar xz --strip 1 -C / \
   && mkdir -p $NOVNC_HOME/utils/websockify \
   && wget -qO- https://github.com/novnc/noVNC/archive/v0.6.2.tar.gz | tar xz --strip 1 -C $NOVNC_HOME \
   && wget -qO- https://github.com/novnc/websockify/archive/v0.6.1.tar.gz | tar xz --strip 1 -C $NOVNC_HOME/utils/websockify \
