@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -xe
+
+source /etc/profile
+
+Xvfb $DISPLAY -screen 0 "$VNC_RESOLUTION"x"$VNC_COL_DEPTH" &
+x11vnc -xkb -noxrecord -noxfixes -noxdamage -permitfiletransfer -tightfilexfer -passwd alpinelinux -display $DISPLAY -forever &
+startxfce4 --replace > $HOME/wm.log &
+$NOVNC_HOME/utils/launch.sh --vnc localhost:$VNC_PORT --listen $NOVNC_PORT
+#tail -f $HOME/wm.log
+
+
