@@ -4,7 +4,9 @@ set -xe
 
 source $HOME/.bashrc
 
-mkdir -p "$HOME/.vnc" 
+mkdir -p "$HOME/.vnc"
+PASSWD_PATH="$HOME/.vnc/passwd"
+
 echo "$VNC_PASSWD" | vncpasswd -f >> $PASSWD_PATH
 chmod 600 $PASSWD_PATH
 
