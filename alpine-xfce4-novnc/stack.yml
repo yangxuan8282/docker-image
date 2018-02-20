@@ -10,4 +10,4 @@ services:
     command: bash -c "sudo apk --update add docker && run_novnc"
     ports:
       - 80:6080
-      - 22:10022
+      #- 22:10022
