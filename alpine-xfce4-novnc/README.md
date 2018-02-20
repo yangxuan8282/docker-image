@@ -51,6 +51,33 @@ sudo docker run -e DISPLAY=:2 -v /tmp:/tmp yangxuan8282/alpine-xfce4-novnc:amd64
 docker run -d -p 6080:6080 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/.X11-unix:/tmp/.X11-unix yangxuan8282/alpine-xfce4-novnc:amd64
 ```
 
+remote X session with ssh tunnel:
+
+run container on server:
+
+```
+docker run -d -p 6080:6080 -p 2222:22 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/.X11-unix:/tmp/.X11-unix yangxuan8282/alpine-xfce4-novnc:amd64
+```
+
+run command in VNC:
+
+```
+sudo apk --update --no-cache add openssh &&
+sudo bash -c 'echo "X11Forwarding yes" >> /etc/ssh/sshd_config' &&
+sudo bash -c 'echo "X11UseLocalhost no" >> /etc/ssh/sshd_config' &&
+sudo ssh-keygen -A &&
+sudo /usr/sbin/sshd -D
+```
+
+then on client:
+
+```
+Xephyr -screen 800x600 :1 &
+DISPLAY=:1.0 ssh -Xf alpine@SERVER_IP -p 2222 xfce4-session
+```
+
+> the default ssh passwd is `alpine`
+
 to use mmal on raspberry pi:
 
 ```
