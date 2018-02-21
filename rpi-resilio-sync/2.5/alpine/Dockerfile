@@ -1,6 +1,6 @@
 FROM yangxuan8282/armhf-alpine-glibc
 
-ENV RESILIO_VERSION=2.5.2
+ENV RESILIO_VERSION=2.5.12
 ENV RESILIO_URL=https://download-cdn.resilio.com/${RESILIO_VERSION}/linux-armhf/resilio-sync_armhf.tar.gz
 
 RUN apk --no-cache --update add bash \
