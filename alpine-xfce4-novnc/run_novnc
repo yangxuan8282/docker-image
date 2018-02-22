@@ -8,6 +8,7 @@ mkdir -p "$HOME/.x11vnc"
 PASSWD_PATH="$HOME/.x11vnc/passwd"
 
 x11vnc -storepasswd $VNC_PASSWD $PASSWD_PATH
+chmod 600 $PASSWD_PATH
 
 $NOVNC_HOME/utils/launch.sh --vnc localhost:$VNC_PORT --listen $NOVNC_PORT &
 Xvfb $DISPLAY -screen 0 "$VNC_RESOLUTION"x"$VNC_COL_DEPTH" &

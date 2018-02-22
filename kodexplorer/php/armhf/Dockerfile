@@ -1,14 +1,13 @@
 FROM yangxuan8282/rpi-php:7.1.2-alpine
 
 ENV KODEXPLORER_VERSION=4.25
-ENV KODEXPLORER_URL="https://github.com/kalcaddle/KodExplorer/archive/4.25.tar.gz"
+ENV KODEXPLORER_URL=https://github.com/kalcaddle/KodExplorer/archive/"$KODEXPLORER_VERSION".tar.gz
 
 RUN set -x \
   && mkdir -p /usr/src/kodexplorer \
   && apk --update --no-cache add wget bash \
-  && wget -O /tmp/kodexplorer.tar.gz "$KODEXPLORER_URL" \
-  && tar -xzf /tmp/kodexplorer.tar.gz -C /usr/src/kodexplorer/ --strip-components=1 \
-  && rm -rf /tmp/*
+  && wget -qO- $KODEXPLORER_URL | tar -xz -C /usr/src/kodexplorer/ --strip-components=1 \
+  && apk del wget
 
 RUN set -x \
   && apk add --no-cache --update \
