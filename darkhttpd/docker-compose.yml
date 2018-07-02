@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+  darkhttpd:
+    image: yangxuan8282/darkhttpd:armhf
+    restart: "unless-stopped"
+    ports:
+      - "8000:80"
+    volumes:
+      - ./www:/www
