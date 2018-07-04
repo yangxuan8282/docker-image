@@ -1,0 +1,11 @@
+version: "2"
+
+services:
+  h5ai:
+    image: yangxuan8282/h5ai:arm
+    #image: yangxuan8282/h5ai:amd64
+    restart: "unless-stopped"
+    ports:
+      - 8080:80
+    volumes:
+      - "./www:/var/www/html"
