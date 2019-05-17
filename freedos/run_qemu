@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -xe
+
+qemu-img create -f raw freedos.img 100M
+
+novnc_server --vnc localhost:5901 &
+
+qemu-system-i386 -nographic -vnc :1 -m 32M -drive file=freedos.img,media=disk,format=raw -drive file=FD12CD.iso,media=cdrom -boot order=d
